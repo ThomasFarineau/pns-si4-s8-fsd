@@ -1,0 +1,25 @@
+{
+  "name": "connect4-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "back/index.js",
+  "scripts": {
+    "start": "node --trace-warnings back/index.js",
+    "dev": "nodemon back/index.js",
+    "sass": "sass mobile/www/styles/app.sass ./mobile/www/styles/app.css --watch --style compressed",
+    "sandbox": "node sandbox/sandbox.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.21",
+    "sass": "^1.59.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongodb": "^5.1.0",
+    "socket.io": "^4.6.1",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0"
+  }
+}

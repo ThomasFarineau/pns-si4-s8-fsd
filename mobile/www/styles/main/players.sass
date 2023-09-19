@@ -1,0 +1,88 @@
+@import "variables"
+
+$profile--size: 2.5rem
+
+
+main
+  players
+    display: flex
+    width: 100%
+
+    player
+      flex: 1
+      background: $sidebar--background
+      position: relative
+
+      &:first-child
+        border-right: 1px solid $sidebar--border
+
+        content
+          justify-content: left
+
+      &:last-child
+        border-left: 1px solid $sidebar--border
+
+        content
+          flex-direction: row-reverse
+
+      hr
+        height: 0.25rem
+        border: 0
+        width: 100%
+        padding: 0
+        margin: 0
+
+      content
+        padding: 0.75em
+        display: flex
+        align-items: center
+        gap: 2rem
+        font-family: $font
+        color: $sidebar--color
+        user-select: none
+
+        profile
+          height: $profile--size
+          width: $profile--size
+          border-radius: 100%
+
+        name
+          font-size: 1.5em
+          font-weight: 500
+
+        elo
+          font-size: 1em
+          opacity: 0.5
+
+        filler
+          flex: auto
+
+    @media only screen and ($mobile--portrait)
+      player
+
+        &:first-child
+          border-right: none
+
+        &:last-child
+          border-left: none
+
+        hr
+          height: 0.125rem
+
+        content
+          gap: 1rem
+          padding: 1rem 1.5rem
+
+          profile
+            height: 1.5rem
+            width: 1.5rem
+
+          name
+            font-size: 1rem
+
+          elo
+            font-size: 0.75rem
+
+  @media($sidebar--breakpoint)
+    players
+      font-size: 12px

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "surprise",
+    "name": "SURPRISE MOTHER...",
+    "description": "Vous avez été curieux et avez été témoin d'une atrocité."
+  },
+  {
+    "id": "add1Friend",
+    "name": "You've got a friend in meeeee",
+    "description": "Vous vous êtes fait 1 ami."
+  },
+  {
+    "id": "win1AI",
+    "name": "Apprenti IA",
+    "description": "Vous avez remporté 1 partie contre l'IA."
+  }
+]

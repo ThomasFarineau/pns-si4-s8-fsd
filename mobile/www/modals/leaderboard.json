@@ -1,0 +1,17 @@
+{
+  "title": "Classement",
+  "content": [
+    {
+      "type": "flex-column",
+      "id": "leaderboardContainer"
+    },
+    {
+      "type": "button",
+      "label": "Retour",
+      "icon": "arrow_back",
+      "action": {
+        "modal": "play"
+      }
+    }
+  ]
+}

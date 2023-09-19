@@ -1,0 +1,154 @@
+@import "variables"
+
+$emote--gap: 2rem
+
+aside
+  &.closed
+    emotes
+      text
+        display: none
+
+  emotes
+    display: flex
+    align-items: center
+    justify-content: center
+    background: $sidebar--nav-background
+    padding: 1rem 0
+    border-radius: 0.75rem
+    user-select: none
+    cursor: pointer
+    color: $sidebar--color
+    overflow: hidden
+    transition: background $transition
+
+    &.disabled
+      cursor: not-allowed
+      pointer-events: none
+      opacity: 0.5
+
+    icon
+      font-size: 1.75rem
+
+    text
+      font-size: 1.25rem
+      margin-left: 0.5rem
+      text-transform: uppercase
+      letter-spacing: 0.05rem
+      user-select: none
+      font-family: $font
+      text-overflow: '...'
+      word-break: keep-all
+      white-space: nowrap
+
+    &:hover
+      background: $sidebar--coloration
+
+$emotes-menu--background: #202124
+
+emotes-menu
+  position: absolute
+  background: $emotes-menu--background
+  border-radius: 0.75rem
+  padding: 0.5rem
+  z-index: 1000
+  font-family: $font
+  min-width: 22rem
+
+  sentences
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+    sentence
+      margin: 0.25rem
+      flex: auto
+      text-align: center
+      padding: 0.75rem 1rem
+      border-radius: 0.75rem
+      background: $sidebar--nav-background
+      cursor: pointer
+      transition: background $transition
+
+      &:hover
+        background: $sidebar--coloration
+
+  images
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+    image
+      flex: 0 0 33%
+      padding: 1rem 1.25rem
+
+      img
+        width: 100%
+        cursor: pointer
+
+main
+  board
+    emote
+      position: absolute
+      z-index: 9
+      top: $emote--gap * 2
+      background: $modal--background
+      color: $modal--color
+      font-family: $font
+      padding: 1rem 2rem
+      border-radius: 0.75rem
+      opacity: 0
+      transition: opacity $transition, top $transition
+
+      img
+        width: 8rem
+        user-select: none
+
+      &.fade-in
+        opacity: 1
+        top: $emote--gap
+
+      &.fade-out
+        opacity: 0
+        top: 0
+
+      &[player="1"]
+        left: $emote--gap
+
+      &[player="2"]
+        right: $emote--gap
+
+        img
+          transform: scaleX(-1)
+
+@media($sidebar--breakpoint)
+  aside
+    emotes
+      text
+        display: none
+
+@media only screen and ($mobile--portrait)
+  main
+    board
+      emote
+        img
+          width: 5rem
+  aside
+    emotes
+      flex: 1 1 33%
+      border-radius: 0.5rem
+      margin-left: 2rem
+      height: 3rem
+  emotes-menu
+    min-width: 100%
+    right: 0 !important
+    left: 0 !important
+    transform: translateY(-0.5rem)
+
+    sentences
+      sentence
+        padding: 0.5rem 0.75rem
+
+    images
+      image
+        flex: 0 0 calc(100% / 5)
+        padding: 0.5rem 0.75rem

@@ -1,0 +1,22 @@
+{
+  "title": "Mes amis",
+  "closable": false,
+  "fade-in": false,
+  "fade-out": false,
+  "content": [
+    {
+      "type": "flex-column",
+      "id": "friendsList"
+    },
+    {
+      "type": "button",
+      "icon": "arrow_back",
+      "label": "Retour",
+      "danger": true,
+      "closable": false,
+      "action": {
+        "modal": "account"
+      }
+    }
+  ]
+}

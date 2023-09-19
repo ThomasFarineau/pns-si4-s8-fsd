@@ -1,0 +1,107 @@
+{
+  "title": "Mon compte",
+  "closable": false,
+  "fade-in": false,
+  "fade-out": false,
+  "content": [
+    {
+      "type": "separator"
+    },
+    {
+      "type": "title",
+      "value": "Informations"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "flex-column",
+      "id": "userInfos"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "title",
+      "value": "Succès"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "flex-column",
+      "id": "successList"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "flex",
+      "id": "friendActions",
+      "content": [
+        {
+          "type": "button",
+          "id": "addFriend",
+          "label": "Ajouter en ami",
+          "icon": "person_add"
+        },
+        {
+          "type": "button",
+          "id": "removeFriend",
+          "label": "Retirer un ami",
+          "icon": "person_remove"
+        },
+        {
+          "type": "button",
+          "id": "acceptFriend",
+          "label": "Accepter un ami",
+          "icon": "Check"
+        },
+        {
+          "type": "button",
+          "id": "denyFriend",
+          "label": "Refuser un ami",
+          "icon": "Close"
+        },
+        {
+          "type": "text",
+          "id": "requestSent",
+          "value": "Requête d'ami envoyée"
+        }
+      ]
+    },
+    {
+      "type": "separator",
+      "closable": false
+    },
+    {
+      "type": "flex-column",
+      "id": "myFriendsContainer",
+      "content": [
+        {
+          "type": "button",
+          "icon": "group",
+          "label": "Mes amis",
+          "closable": false,
+          "id": "myFriends",
+          "action": {
+            "modal": "friends"
+          }
+        },
+        {
+          "type": "separator",
+          "closable": false
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "icon": "arrow_back",
+      "label": "Retour",
+      "closable": false,
+      "action": {
+        "modal": "play"
+      }
+    }
+  ]
+}

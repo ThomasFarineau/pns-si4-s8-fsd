@@ -1,0 +1,76 @@
+@import "variables"
+
+$item--size: 3.5em
+
+aside
+
+  &.closed
+    nav
+      flex-direction: column
+      gap: $sidebar--gap
+
+  nav
+    display: flex
+    justify-content: space-between
+
+  item
+    width: $item--size
+    height: $item--size
+    border-radius: calc($item--size / 4)
+    display: inline-block
+    background: rgba(255, 255, 255, 0.1)
+    position: relative
+    transition: background $transition
+    cursor: pointer
+
+    &:hover
+      background: $sidebar--coloration
+
+    icon
+      position: absolute
+      color: $sidebar--color
+      font-size: calc($item--size / 2)
+      bottom: 0
+      right: 0
+      transform: translate(-50%, -50%)
+      user-select: none
+
+
+
+@media($sidebar--breakpoint)
+  aside
+    nav
+      flex-direction: column
+      gap: $sidebar--gap
+      font-size: 12px
+      align-items: center
+
+      item[collapser]
+        display: none
+
+@media only screen and ($mobile--portrait)
+  aside
+    display: flex
+    flex-direction: row
+    padding: 1rem
+
+    nav
+      flex-direction: row
+      justify-content: space-between
+      gap: 0.75rem
+      flex: 1 1 100%
+
+      item
+        border-radius: 8px
+        flex: 1
+        display: flex
+        justify-content: center
+        align-items: center
+
+        icon
+          position: unset
+          transform: none
+          font-size: 1.25rem
+
+      item[collapser]
+        display: none

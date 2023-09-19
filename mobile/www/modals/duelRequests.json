@@ -1,0 +1,24 @@
+{
+  "title": "Demandes de duels",
+  "closable": false,
+  "fade-in": false,
+  "fade-out": false,
+  "content": [
+    {
+      "type": "flex-column",
+      "id": "pendingDuelR"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "button",
+      "icon": "arrow_back",
+      "label": "Retour",
+      "danger": true,
+      "action": {
+        "modal": "play"
+      }
+    }
+  ]
+}

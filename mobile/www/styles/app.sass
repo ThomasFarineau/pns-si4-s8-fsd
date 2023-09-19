@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0")
+
+*, *:before, *:after
+  box-sizing: border-box
+
+@import "reset"
+@import "variables"
+
+$font--size: 20px
+$font--size--small: 16px
+
+@media only screen and ($mobile--portrait)
+  body
+    overflow: hidden
+    height: 100vh
+    background: $background
+    display: flex
+    flex-direction: column
+
+@import "main"
+@import "aside"
+
+@import "modals"
+
+.hidden
+  display: none
+
+button
+  font-family: $font
+  font-size: 1.25rem
+  background: $sidebar--coloration
+  border-radius: 0.75rem
+  padding: 0.5rem 1rem
+  cursor: pointer
+  position: relative
+  border: 0.25rem solid $sidebar--coloration
+  color: $sidebar--color
+  transition: background $transition
+  user-select: none
+  display: inline-flex
+  gap: 1.25rem
+  align-items: center
+  justify-content: center
+
+  &.danger
+    background: $danger
+    border-color: $danger
+    color: $sidebar--background
+
+  &:hover
+    background: $sidebar--color
+    color: $sidebar--background
+
+    notif
+      color: $sidebar--color
+
+  notif
+    background: $danger
+    position: absolute
+    right: -0.5rem
+    top: -0.75rem
+    font-size: 1rem
+    padding: 0.25rem 0.5rem
+    border-radius: 0.5rem
+
+
+@import "surprise"
+
+icon
+  font-family: 'Material Symbols Outlined', sans-serif
+  font-weight: normal
+  font-style: normal
+  line-height: 1
+  letter-spacing: normal
+  text-transform: none
+  display: inline-block
+  white-space: nowrap
+  word-wrap: normal
+  direction: ltr
+  -webkit-font-feature-settings: 'liga'
+  -webkit-font-smoothing: antialiased
+
+alreadyLogged
+  background: $sidebar--background
+  color: $sidebar--color
+  width: 100vw
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  font-family: $font
+  font-size: 2rem
+
+  span
+    max-width: 800px
+    margin: 1rem
+
+  button
+    &:hover
+      background: $sidebar--background
+      color: $sidebar--color

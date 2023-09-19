@@ -1,0 +1,144 @@
+{
+  "title": "Jouer",
+  "content": [
+    {
+      "type": "collapser",
+      "icon": "person",
+      "label": "Jouer en local",
+      "id": "localCollapser",
+      "content": [
+        {
+          "type": "button",
+          "icon": "play_arrow",
+          "label": "Jouer",
+          "action": {
+            "event": "play_local"
+          }
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "icon": "smart_toy",
+      "label": "Jouer contre l'IA",
+      "action": {
+        "event": "play_ai"
+      }
+    },
+    {
+      "type": "button",
+      "icon": "wifi",
+      "label": "Jouer en ligne",
+      "logged": true,
+      "action": {
+        "event": "play_online"
+      }
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "button",
+      "label": "Classement",
+      "icon": "social_leaderboard",
+      "action": {
+        "modal": "leaderboard"
+      }
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "flex-auto",
+      "content": [
+        {
+          "type": "input",
+          "label": "Nom d'un joueur",
+          "id": "playerName",
+          "attributes": {
+            "type": "string",
+            "placeholder": "Entrez le nom"
+          }
+        },
+        {
+          "type": "button",
+          "label": "",
+          "icon": "search",
+          "action": {
+            "event": "search_player"
+          }
+        }
+      ]
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "flex",
+      "logged": true,
+      "content": [
+        {
+          "type": "button",
+          "icon": "notifications",
+          "label": "Demandes d'ami",
+          "action": {
+            "modal": "friendRequests"
+          }
+        },
+        {
+          "type": "button",
+          "icon": "Swords",
+          "label": "Demandes de duel",
+          "action": {
+            "modal": "duelRequests"
+          }
+        }
+      ]
+    },
+    {
+      "type": "flex",
+      "logged": true,
+      "content": [
+        {
+          "type": "button",
+          "icon": "person",
+          "label": "Mon compte",
+          "action": {
+            "modal": "account"
+          }
+        },
+        {
+          "type": "button",
+          "icon": "logout",
+          "label": "Se déconnecter",
+          "action": {
+            "request": "/api/logout",
+            "modal": "play"
+          }
+        }
+      ]
+    },
+    {
+      "type": "flex",
+      "logged": false,
+      "content": [
+        {
+          "type": "button",
+          "icon": "person",
+          "label": "Se connecter",
+          "action": {
+            "modal": "login"
+          }
+        },
+        {
+          "type": "button",
+          "icon": "person_add",
+          "label": "S'inscrire",
+          "action": {
+            "modal": "register"
+          }
+        }
+      ]
+    }
+  ]
+}

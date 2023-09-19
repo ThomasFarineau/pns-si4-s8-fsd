@@ -1,0 +1,355 @@
+@import "variables"
+
+modal-wrapper
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: 9999
+  background: $modal-wrapper--background
+  backdrop-filter: blur($modal-wrapper--blur-radius)
+  display: flex
+  justify-content: center
+  align-items: center
+
+  &[closable]
+    cursor: pointer
+
+    modal
+      cursor: auto
+
+      modal-header
+        justify-content: space-between
+
+  modal
+    background: $modal--background
+    border-radius: 1rem
+    box-shadow: 0 0 0 0.75rem $modal--shadow-color
+    color: $modal--color
+    min-width: 550px
+    max-width: 50vw
+    font-family: $font
+    padding-bottom: $modal--padding
+    max-height: 85vh
+    overflow-y: auto
+
+    modal-header
+      padding: $modal--padding
+      display: flex
+      justify-content: center
+      align-items: center
+      user-select: none
+
+      title
+        font-size: $modal--title-size
+        margin: 0
+        font-weight: normal
+        display: block
+
+      close
+        cursor: pointer
+        width: $modal--title-size
+        height: $modal--title-size
+        user-select: none
+        position: relative
+
+        &:after, &:before
+          content: ''
+          background: $modal--color
+          position: absolute
+          top: 12.5px
+          left: -2.5px
+          width: 32px
+          height: 2px
+
+        &:after
+          transform: rotate(45deg)
+
+        &:before
+          transform: rotate(-45deg)
+
+    modal-body
+      padding: 0 $modal--padding
+      user-select: none
+      display: flex
+      flex-direction: column
+      gap: $modal--gap
+
+      text#feedback:empty
+        display: none
+
+      text#feedback
+        font-size: 1rem
+        margin: 0
+        background: $danger
+        color: white
+        padding: 0.5rem 1rem
+        border-radius: 0.5rem
+
+      flex
+        display: flex
+        gap: $modal--gap
+
+        & > *
+          flex: 1
+
+      input-group
+        display: flex
+        flex-direction: column
+        gap: calc($modal--gap / 2)
+
+      input
+        border: 1px solid #000000
+        border-radius: 0.5rem
+        padding: 8px 16px
+        background: transparent
+        color: #000000
+        font-family: "Montserrat", sans-serif
+        font-size: 1rem
+
+        &[type="submit"]
+          @extend button
+
+      flex-column
+        display: flex
+        flex-direction: column
+        gap: $modal--gap
+
+      flex-auto
+        display: flex
+        gap: $modal--gap
+
+        & > *
+          flex: auto
+
+
+      form
+        display: flex
+        flex-direction: column
+        gap: $modal--gap
+
+      separator
+        width: 100%
+        height: $modal--gap
+
+      h2
+        font-size: 1.25rem
+        margin: 0
+        font-weight: bold
+        text-align: center
+
+      big-text
+        font-size: 3rem
+        margin: 0
+        text-transform: uppercase
+        letter-spacing: 0.5rem
+        display: flex
+        text-align: center
+
+        icon
+          margin: 0 1rem
+
+      img
+        max-width: 85%
+        margin: 0 auto
+        border-radius: 0.5rem
+        user-select: none
+        pointer-events: none
+
+      collapser
+        display: flex
+        flex-direction: column
+
+        & > input[type="checkbox"]
+          display: none
+
+          &:checked ~ label
+            background: $modal--background
+            color: $modal--color
+
+        & > label
+          @extend button
+
+        collapser-content
+          max-height: 0
+          overflow: hidden
+          transition: max-height $transition
+
+          content
+            background: darken($modal--background, 15%)
+            margin: calc($modal--padding / 2)
+            padding: calc($modal--padding / 2)
+            border-radius: calc($modal--padding / 2)
+            display: flex
+            flex-direction: column
+            gap: $modal--gap
+
+
+@media only screen and ($mobile--portrait)
+  modal-wrapper
+    align-items: self-start
+    modal
+      min-width: 0
+      width: 100vw
+      max-width: 100vw
+      border: 0
+      box-shadow: none
+      min-height: 100vh
+      height: 100%
+      border-radius: 0
+      padding: 1rem
+      display: block
+      overflow: auto
+
+      &::-webkit-scrollbar
+        width: 0.5rem
+
+      &::-webkit-scrollbar-thumb
+          background: $sidebar--coloration
+          border-radius: 0.5rem
+
+
+      modal-body
+        flex
+          flex-direction: column
+
+#leaderboardContainer
+  text
+    text-align: center
+
+  user
+    display: flex
+    flex-direction: row
+    gap: $modal--gap
+    background: darken($modal--background, 15%)
+    padding: calc($modal--padding / 2)
+    border-radius: calc($modal--padding / 2)
+    cursor: pointer
+
+    rank::after
+      content: ' -'
+
+    username
+      flex: 1
+
+#userInfos
+  & > *
+    text-align: center
+    background: darken($modal--background, 15%)
+    margin: calc($modal--padding / 4)
+    padding: calc($modal--padding / 2)
+    border-radius: calc($modal--padding / 2)
+    display: flex
+    justify-content: space-between
+
+#successList
+  achievement
+    background: darken($modal--background, 15%)
+    margin: calc($modal--padding / 4)
+    padding: calc($modal--padding / 2)
+    border-radius: calc($modal--padding / 2) calc($modal--padding / 2) 0 0
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    align-items: flex-start
+
+    &[unlocked="false"]
+      border-bottom: $danger 2px solid
+
+    &[unlocked="true"]
+      border-bottom: $success 2px solid
+
+
+    name
+      font-weight: bold
+      margin-bottom: calc($modal--padding / 4)
+
+    description
+      font-style: italic
+
+#pendingFriendR
+  friend-request
+    display: flex
+    background: darken($modal--background, 15%)
+    margin: calc($modal--padding / 4)
+    padding: calc($modal--padding / 2)
+    border-radius: calc($modal--padding / 2)
+    gap: $modal--gap
+    align-items: center
+
+    text
+      flex: 1
+      cursor: pointer
+
+    button
+      padding: 0.25rem 0.5rem
+      border-radius: 0.5rem
+      background: $success
+      border-color: $success
+
+      &:last-child
+        background: $danger
+        border-color: $danger
+
+      &:hover
+        background: darken($modal--background, 15%)
+
+#pendingDuelR
+  duel-request
+    display: flex
+    background: darken($modal--background, 15%)
+    margin: calc($modal--padding / 4)
+    padding: calc($modal--padding / 2)
+    border-radius: calc($modal--padding / 2)
+    gap: $modal--gap
+    align-items: center
+
+    text
+      flex: 1
+      cursor: pointer
+
+    button
+      padding: 0.25rem 0.5rem
+      border-radius: 0.5rem
+
+      &:hover
+        background: darken($modal--background, 15%)
+
+#friendsList
+  friend
+    display: flex
+    background: darken($modal--background, 15%)
+    margin: calc($modal--padding / 4)
+    padding: calc($modal--padding / 2)
+    border-radius: calc($modal--padding / 2)
+    gap: $modal--gap
+    align-items: center
+
+    status
+      width: 1rem
+      height: 1rem
+      border-radius: 50%
+      background: darken($modal--background, 50%)
+
+      &[online="true"]
+        background: $success
+
+    text
+      flex: 1
+      cursor: pointer
+
+    button
+      padding: 0.25rem 0.5rem
+      border-radius: 0.5rem
+      font-size: 1rem
+
+      icon
+        font-size: 1.25rem
+
+      &:last-child
+        background: $danger
+        border-color: $danger
+
+      &:hover
+        background: darken($modal--background, 15%)

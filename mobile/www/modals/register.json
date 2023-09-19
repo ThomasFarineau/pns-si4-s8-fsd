@@ -1,0 +1,98 @@
+{
+  "title": "Inscription",
+  "content": [
+    {
+      "type": "text",
+      "value": "",
+      "id": "feedback"
+    },
+    {
+      "type": "form",
+      "action": "/api/signup",
+      "method": "post",
+      "content": [
+        {
+          "type": "feedback"
+        },
+        {
+          "type": "input",
+          "label": "Nom d'utilisateur",
+          "id": "username",
+          "attributes": {
+            "required": true,
+            "minlength": 3,
+            "maxlength": 30,
+            "pattern": "[a-zA-Z0-9]+",
+            "type": "text",
+            "name": "username"
+          }
+        },
+        {
+          "type": "input",
+          "label": "Adresse e-mail",
+          "id": "mail",
+          "attributes": {
+            "required": true,
+            "type": "email",
+            "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
+            "name": "mail"
+          }
+        },
+        {
+          "type": "flex",
+          "content": [
+            {
+              "type": "input",
+              "inputType": "password",
+              "label": "Mot de passe",
+              "id": "password",
+              "attributes": {
+                "required": true,
+                "minlength": 8,
+                "maxlength": 255,
+                "type": "password",
+                "name": "password"
+              }
+            },
+            {
+              "type": "input",
+              "inputType": "password",
+              "label": "Confirmation",
+              "id": "password_confirm",
+              "attributes": {
+                "required": true,
+                "minlength": 8,
+                "maxlength": 255,
+                "data-match": "password",
+                "type": "password"
+              }
+            }
+          ]
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "flex",
+          "content": [
+            {
+              "type": "input",
+              "attributes": {
+                "type": "submit",
+                "value": "S'inscrire"
+              }
+            },
+            {
+              "type": "button",
+              "icon": "arrow_back",
+              "label": "Retour",
+              "action": {
+                "modal": "play"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

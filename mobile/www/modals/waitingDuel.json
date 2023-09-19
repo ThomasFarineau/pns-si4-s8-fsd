@@ -1,0 +1,33 @@
+{
+  "title": "En attente de votre ami",
+  "content": [
+    {
+      "type": "title",
+      "value": "..."
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "text",
+      "id": "waitingTime",
+      "value": ""
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "text",
+      "id": "waitingPlayers",
+      "value": ""
+    },
+    {
+      "type": "button",
+      "label": "Annuler",
+      "icon": "arrow_back",
+      "action": {
+        "event": "cancel_online_duel"
+      }
+    }
+  ]
+}

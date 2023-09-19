@@ -1,0 +1,43 @@
+@import "variables"
+
+aside
+  background: #171717
+  width: $sidebar--opened--width
+  position: absolute
+  right: 0
+  top: 0
+  bottom: 0
+  border-left: 2px solid $sidebar--border
+  padding: $sidebar--gap
+  box-sizing: border-box
+  transition: width $transition
+  display: flex
+  flex-direction: column
+  gap: $sidebar--gap
+  color: $sidebar--color
+  z-index: 9
+
+  &.closed
+    width: $sidebar--closed--width
+
+@media($sidebar--breakpoint)
+  aside
+    width: $sidebar--closed--width
+
+@media only screen and ($mobile--portrait)
+  aside
+    height: fit-content
+    position: relative
+    border: 0
+    padding: 0
+    background: $sidebar--background
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    gap: 0
+    width: 100%
+
+@import "navigation"
+@import "playing"
+@import "history"
+@import "emotes"

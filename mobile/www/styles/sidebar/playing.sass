@@ -1,0 +1,65 @@
+@import "variables"
+
+$color--size: 2em
+$color--size-closed: 3.5em
+
+
+aside
+
+  &.closed
+    playing
+      text
+        display: none
+
+      color
+        width: $color--size-closed
+        height: $color--size-closed
+
+  playing
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: $sidebar--gap
+    border-top: 2px solid $sidebar--color
+    border-bottom: 2px solid $sidebar--color
+    padding: $sidebar--gap 0
+    user-select: none
+
+    text
+      text-transform: uppercase
+      font-family: "Montserrat", sans-serif
+
+      player
+        font-weight: bold
+        padding-left: 8px
+
+    color
+      width: $color--size
+      height: $color--size
+      border-radius: 100%
+
+@media($sidebar--breakpoint)
+  aside
+    playing
+      font-size: 12px
+      text
+        display: none
+
+      color
+        width: $color--size-closed
+        height: $color--size-closed
+
+@media only screen and ($mobile--portrait)
+  aside
+    playing
+      border: none
+      border-left: 2px solid #fff
+      margin-left: 1rem
+      padding: 0 0 0 1rem
+
+      color
+        width: 3rem
+        height: 3rem
+
+      text
+        display: none

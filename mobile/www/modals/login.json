@@ -1,0 +1,69 @@
+{
+  "title": "Connexion",
+  "content": [
+    {
+      "type": "text",
+      "value": "",
+      "id": "feedback"
+    },
+    {
+      "type": "form",
+      "action": "/api/login",
+      "method": "post",
+      "content": [
+        {
+          "type": "feedback"
+        },
+        {
+          "type": "input",
+          "label": "Nom d'utilisateur ou adresse email",
+          "id": "username",
+          "attributes": {
+            "name": "username",
+            "type": "text",
+            "autocomplete": "username",
+            "required": true,
+            "minlength": 3
+          }
+        },
+        {
+          "type": "input",
+          "label": "Mot de passe",
+          "id": "password",
+          "attributes": {
+            "name": "password",
+            "type": "password",
+            "autocomplete": "current-password",
+            "required": true,
+            "minlength": 8,
+            "maxlength": 255
+          }
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "flex",
+          "content": [
+            {
+              "type": "input",
+              "attributes": {
+                "type": "submit",
+                "value": "Se connecter"
+              }
+            },
+            {
+              "type": "button",
+              "icon": "arrow_back",
+              "label": "Retour",
+              "danger": true,
+              "action": {
+                "modal": "play"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

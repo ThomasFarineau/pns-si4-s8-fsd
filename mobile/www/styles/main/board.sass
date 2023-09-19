@@ -1,0 +1,239 @@
+@import "variables"
+
+$grid--color: #3C1FEB
+$grid--color-hover: #321bbc
+
+$default-token--color: #fff
+$default-token--color-stroke: #cacaca
+
+$grid--col-gap: 1em
+$grid--row-gap: 0.375em
+$grid--token: 3.5em
+
+$mobile--token: 6em
+$mobile--separator: 0.75em
+
+main
+  board
+    font-size: 1rem
+    flex: auto
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    gap: 0.5rem
+    z-index: 2
+    position: relative
+
+    wrapper
+      display: flex
+      gap: 0.5em
+      align-items: center
+      justify-content: center
+      flex-direction: column
+
+    &.disabled
+      cursor: not-allowed
+
+      & > *
+        pointer-events: none
+
+      grid
+        box-shadow: none
+        animation: none
+        opacity: 0.9
+
+
+    .last-to-extend
+      content: ""
+      position: absolute
+      width: 2 * $grid--row-gap
+      height: 2 * $grid--row-gap
+      bottom: 0
+      right: 0
+      top: 0
+      left: 0
+      border-radius: 100%
+      background: $default-token--color
+      z-index: 1
+      transition: background $transition
+      transform: translate(calc($grid--token / 2) - $grid--row-gap, calc($grid--token / 2) - $grid--row-gap)
+
+    .token-to-extend
+      width: $grid--token
+      height: $grid--token
+      background: $default-token--color
+      border-radius: 100%
+      box-shadow: inset 0 0 0 $grid--row-gap $default-token--color-stroke
+      position: relative
+      display: block
+
+      &.player-1
+        background: $player1--color
+        box-shadow: inset 0 0 0 $grid--row-gap $player1--color-stroke
+
+      &.player-2
+        background: $player2--color
+        box-shadow: inset 0 0 0 $grid--row-gap $player2--color-stroke
+
+    indicators
+      display: flex
+      gap: 2 * $grid--col-gap
+      justify-content: center
+
+      token
+        @extend .token-to-extend
+        opacity: 0
+        transition: transform ease 0.25s, opacity ease 0.25s
+        transform: translateY(0em)
+
+        &:after
+          @extend .last-to-extend
+
+        &.focus
+          opacity: 1
+          transform: translateY(-0.625em)
+
+    grid
+      border: solid $grid--color
+      border-width: 0 $grid--col-gap 0 $grid--col-gap
+      border-radius: $grid--col-gap
+      display: inline-flex
+      user-select: none
+      box-shadow: 0 0 0 0.75rem transparentize($grid--color, 0.5)
+      animation: shadow-blink 1s infinite
+      margin-bottom: 1.5rem
+
+      animated-token
+        @extend .token-to-extend
+        position: absolute
+
+        &:after
+          @extend .last-to-extend
+
+      column
+        position: relative
+        margin: 0 $grid--col-gap
+        z-index: 2
+
+        &.focus
+          cursor: pointer
+
+          &:before, &:after
+            background: $grid--color-hover
+
+          separator
+            background: $grid--color-hover
+
+          cell
+            &:after
+              box-shadow: 0 6.25em 0 18.75em $grid--color-hover
+
+        &:before
+          content: ""
+          position: absolute
+          width: $grid--col-gap
+          height: 100%
+          background: $grid--color
+          left: 0 - $grid--col-gap
+          top: 0
+          transition: background $transition
+
+        &:after
+          content: ""
+          position: absolute
+          width: $grid--col-gap
+          height: 100%
+          background: $grid--color
+          right: 0 - $grid--col-gap
+          top: 0
+          transition: background $transition
+
+        cell
+          background: transparent
+          width: $grid--token
+          height: $grid--token
+          position: relative
+          overflow: hidden
+          display: block
+          transition: background $transition
+
+          &:after
+            content: ""
+            position: absolute
+            width: 100%
+            height: 100%
+            border-radius: 100%
+            bottom: 0
+            box-shadow: 0 6.25em 0 18.75em $grid--color
+            transition: box-shadow $transition
+
+          token
+            @extend .token-to-extend
+
+            &.last::after
+              @extend .last-to-extend
+
+        separator
+          height: 0.75em
+          background: $grid--color
+          display: block
+          position: relative
+          transition: background $transition
+
+          &:first-child, &:last-child
+            height: 1.5em
+
+    @media only screen and ($mobile--portrait)
+
+      indicators
+        margin-top: $mobile--token
+        gap: $mobile--separator
+
+        token
+          font-size: calc($mobile--token / 3.5)
+
+      grid
+        border-width: 0 $mobile--separator 0 $mobile--separator
+        border-radius: $mobile--separator
+
+        animated-token
+          width: $mobile--token
+          height: $mobile--token
+
+          &::after
+            font-size: calc($mobile--token / 3.5)
+
+        column
+          margin: 0 calc($mobile--separator / 2)
+
+          &:before, &:after
+            width: calc($mobile--separator / 2)
+
+          &:before
+            left: 0 - calc($mobile--separator / 2)
+
+          &:after
+            right: 0 - calc($mobile--separator / 2)
+
+          separator
+            height: $mobile--separator
+
+            &:first-child, &:last-child
+              height: calc($mobile--separator * 2)
+
+          cell
+            font-size: calc($mobile--token / 3.5)
+
+
+
+@keyframes shadow-blink
+  0%
+    box-shadow: 0 0 0 0.75em transparentize($grid--color, 0.5)
+
+  50%
+    box-shadow: none
+
+  100%
+    box-shadow: 0 0 0 0.75em transparentize($grid--color, 0.5)

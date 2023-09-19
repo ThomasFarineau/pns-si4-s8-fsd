@@ -1,0 +1,30 @@
+@import "variables"
+
+main
+  background: $background
+  margin-right: $sidebar--opened--width
+  position: relative
+  height: 100vh
+  transition: margin-right $transition
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  &.sidebar-closed
+    margin-right: $sidebar--closed--width
+
+@media($sidebar--breakpoint)
+  main
+    margin-right: $sidebar--closed--width
+
+
+@media only screen and ($mobile--portrait)
+    main
+      flex: 1
+      height: auto
+      flex-direction: column-reverse
+      margin: 0 0 -80px
+
+@import "board"
+@import "players"
